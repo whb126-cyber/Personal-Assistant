@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William Benson – Personal Assistant SMS Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #FAFAF8;
+            --color-text: #1A1A1A;
+            --color-text-secondary: #5A5A58;
+            --color-accent: #2C5F4B;
+            --color-accent-light: #E8F0EC;
+            --color-border: #E0DED8;
+            --color-card-bg: #FFFFFF;
+            --color-highlight: #F5F0E8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid var(--color-border);
+        }
+        header h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+        header p {
+            color: var(--color-text-secondary);
+            font-size: 1.05rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 16px;
+            color: var(--color-text);
+        }
+        section h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+        section p {
+            margin-bottom: 12px;
+            color: var(--color-text-secondary);
+        }
+        section ul {
+            margin: 8px 0 16px 20px;
+            color: var(--color-text-secondary);
+        }
+        section ul li {
+            margin-bottom: 6px;
+        }
+
+        /* Consent Box */
+        .consent-box {
+            background-color: var(--color-card-bg);
+            border: 2px solid var(--color-accent);
+            border-radius: 10px;
+            padding: 28px 28px 24px;
+            margin: 24px 0;
+        }
+        .consent-box .label {
+            display: inline-block;
+            background: var(--color-accent);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+        }
+        .consent-box p {
+            color: var(--color-text);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        .consent-box p:last-child {
+            margin-bottom: 0;
+        }
+        .consent-box strong {
+            color: var(--color-text);
+        }
+
+        /* How it works */
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background: var(--color-card-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 18px 20px;
+        }
+        .step-num {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            background: var(--color-accent-light);
+            color: var(--color-accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step-text {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+        }
+        .step-text strong {
+            color: var(--color-text);
+        }
+
+        /* Policy sections */
+        .policy-section {
+            padding-top: 40px;
+        }
+        .policy-section h2 {
+            padding-bottom: 4px;
+        }
+        .effective-date {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            padding: 32px 0;
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-size: 0.88rem;
+            border-top: 1px solid var(--color-border);
+        }
+        footer a {
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        /* Nav links */
+        nav {
+            margin-top: 16px;
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.6rem; }
+            section h2 { font-size: 1.2rem; }
+            .consent-box { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header>
+        <h1>William Benson</h1>
+        <p>Personal Assistant SMS Service</p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#sms-consent">SMS Consent</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2>About This Service</h2>
+        <p>This is a personal AI assistant SMS service operated by William Benson as a sole proprietor. The service is for my own personal use only. I am the sole user of this number.</p>
+        <p>I text this number to capture tasks, reminders, ideas, and notes. The assistant sends me back automated SMS messages including:</p>
+        <ul>
+            <li>Task reminders and to-do notifications</li>
+            <li>Calendar summaries and appointment alerts</li>
+            <li>Follow-up messages based on my requests</li>
+            <li>Responses to my queries and idea captures</li>
+        </ul>
+        <p>No marketing, promotional, or advertising messages are sent through this service. This number is not used to contact any third parties. All messages are between me (William Benson) and my personal assistant system.</p>
+    </section>
+
+    <!-- SMS CONSENT -->
+    <section id="sms-consent">
+        <h2>SMS Messaging Consent</h2>
+        <p>By texting the toll-free number associated with this service, the user provides express consent to receive automated SMS text messages from William Benson's Personal Assistant Service.</p>
+
+        <div class="consent-box">
+            <span class="label">SMS Consent Disclosure</span>
+            <p><strong>By sending a text message to this number, you agree to receive automated SMS text messages from William Benson's Personal Assistant Service.</strong></p>
+            <p>Messages include: task reminders, calendar notifications, appointment alerts, and informational responses to your requests.</p>
+            <p><strong>Message frequency varies</strong> based on your usage. Estimated message volume is approximately 1,000 messages per month.</p>
+            <p><strong>Message and data rates may apply.</strong> Your mobile carrier's standard messaging rates apply to all messages sent and received.</p>
+            <p>Consent is not a condition of any purchase. You may revoke consent at any time.</p>
+            <p><strong>To opt out:</strong> Reply <strong>STOP</strong> to any message to unsubscribe and stop receiving messages.</p>
+            <p><strong>For help:</strong> Reply <strong>HELP</strong> to any message for support information, or email <strong><span class="e-protect"></span></strong>.</p>
+        </div>
+
+        <h3>Opt-In Process</h3>
+        <p>The opt-in process for this service works as follows:</p>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-text"><strong>Initiation:</strong> The user sends an initial text message (e.g., "START" or any message) to the toll-free number to begin using the service.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-text"><strong>Confirmation:</strong> The system replies with a confirmation message: "Welcome to William Benson's Personal Assistant. You've opted in to receive automated SMS messages including reminders, notifications, and responses. Msg frequency varies. Msg &amp; data rates may apply. Reply HELP for help, STOP to cancel."</div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-text"><strong>Ongoing Use:</strong> The user sends text messages to capture tasks, set reminders, or ask questions. The assistant responds via SMS with the requested information.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div class="step-text"><strong>Opt-Out:</strong> At any time, the user can reply STOP to immediately cease all automated messages. A final confirmation is sent: "You have been unsubscribed. No more messages will be sent. Reply START to re-subscribe."</div>
+            </div>
+        </div>
+
+        <h3>Consent Keywords</h3>
+        <p><strong>START</strong> — Subscribe and opt in to receive messages.</p>
+        <p><strong>STOP</strong> — Unsubscribe and opt out of all messages.</p>
+        <p><strong>HELP</strong> — Receive support and contact information.</p>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works">
+        <h2>How It Works</h2>
+        <p>This personal assistant operates as a two-way SMS service:</p>
+        <ul>
+            <li><strong>Inbound:</strong> I (William Benson) send a text message to my toll-free number with a task, reminder request, question, or note.</li>
+            <li><strong>Processing:</strong> The assistant system processes my message and determines the appropriate response or action.</li>
+            <li><strong>Outbound:</strong> The assistant sends me an SMS reply with the requested information, a confirmation, or a scheduled reminder at the appropriate time.</li>
+        </ul>
+        <p>Example messages the assistant may send:</p>
+        <ul>
+            <li>"Reminder: You asked to be reminded about your dentist appointment tomorrow at 2pm. Reply STOP to opt out."</li>
+            <li>"Here's your daily summary for Monday: 3 tasks due, 2 meetings scheduled. Reply STOP to opt out."</li>
+            <li>"Got it — I've added 'Pick up groceries' to your task list. Reply STOP to opt out."</li>
+        </ul>
+    </section>
+
+    <!-- PRIVACY POLICY -->
+    <section id="privacy" class="policy-section">
+        <h2>Privacy Policy</h2>
+        <p class="effective-date">Effective Date: April 13, 2026</p>
+
+        <h3>Overview</h3>
+        <p>This Privacy Policy describes how William Benson ("I", "me") collects, uses, and protects information in connection with the Personal Assistant SMS Service ("the Service"). This Service is for my sole personal use.</p>
+
+        <h3>Information Collected</h3>
+        <p>The Service processes the following information that I provide via text message:</p>
+        <ul>
+            <li>My mobile phone number (for sending and receiving SMS messages)</li>
+            <li>The content of text messages I send to the Service (tasks, reminders, questions, notes)</li>
+            <li>Timestamps and metadata associated with messages</li>
+        </ul>
+
+        <h3>How Information Is Used</h3>
+        <p>Information is used solely to:</p>
+        <ul>
+            <li>Process my requests and provide the assistant functionality I've requested</li>
+            <li>Send me reminders, notifications, and responses via SMS</li>
+            <li>Improve the personal assistant's ability to serve my needs</li>
+        </ul>
+
+        <h3>Information Sharing</h3>
+        <p>I do not sell, rent, share, or disclose any personal information to third parties for marketing or advertising purposes. Message data may be transmitted through third-party service providers (such as Twilio) solely for the purpose of delivering SMS messages. These service providers are bound by their own privacy policies and data protection obligations.</p>
+
+        <h3>Data Retention</h3>
+        <p>Message data and related information are retained only as long as necessary to provide the Service. I may delete data at any time at my discretion.</p>
+
+        <h3>Data Security</h3>
+        <p>I take reasonable measures to protect the information processed by this Service. However, no method of electronic transmission or storage is 100% secure.</p>
+
+        <h3>Opt-Out and Data Deletion</h3>
+        <p>Since I am the sole user of this Service, I can discontinue use at any time by replying STOP to any message or by ceasing to use the Service. I can request deletion of my data from any third-party service providers used by the Service.</p>
+
+        <h3>Changes to This Policy</h3>
+        <p>I may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated effective date.</p>
+
+        <h3>Contact</h3>
+        <p>For questions about this Privacy Policy, contact: <strong><span class="e-protect"></span></strong></p>
+    </section>
+
+    <!-- TERMS OF SERVICE -->
+    <section id="terms" class="policy-section">
+        <h2>Terms of Service</h2>
+        <p class="effective-date">Effective Date: April 13, 2026</p>
+
+        <h3>Acceptance of Terms</h3>
+        <p>By using the Personal Assistant SMS Service ("the Service"), you agree to these Terms of Service. The Service is operated by William Benson as a sole proprietor for personal use.</p>
+
+        <h3>Description of Service</h3>
+        <p>The Service is an automated SMS-based personal assistant that processes text messages and sends replies including task reminders, calendar notifications, appointment alerts, and informational responses. This Service is intended for the sole personal use of William Benson.</p>
+
+        <h3>SMS Messaging Terms</h3>
+        <ul>
+            <li>By texting the Service's toll-free number, you consent to receive automated SMS messages.</li>
+            <li>Message frequency varies based on usage.</li>
+            <li>Message and data rates may apply as determined by your mobile carrier.</li>
+            <li>You may opt out at any time by replying STOP.</li>
+            <li>For help, reply HELP or contact <span class="e-protect"></span>.</li>
+            <li>Compatible carriers include but are not limited to AT&T, T-Mobile, Verizon, and Sprint. Service may not be available on all carrier networks.</li>
+        </ul>
+
+        <h3>Disclaimer</h3>
+        <p>The Service is provided "as is" without warranty of any kind, express or implied. I do not guarantee that the Service will be uninterrupted, timely, or error-free. Reminders and notifications are provided as a convenience and should not be relied upon as the sole method of tracking important appointments or deadlines.</p>
+
+        <h3>Limitation of Liability</h3>
+        <p>In no event shall William Benson be liable for any indirect, incidental, special, or consequential damages arising out of or in connection with the use of this Service.</p>
+
+        <h3>Changes to Terms</h3>
+        <p>I may update these Terms of Service at any time. Continued use of the Service following any changes constitutes acceptance of the updated terms.</p>
+
+        <h3>Contact</h3>
+        <p>For questions about these Terms, contact: <strong><span class="e-protect"></span></strong></p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact Information</h2>
+        <p><strong>William Benson</strong></p>
+        <p>Email: <a class="e-protect-link" href="#" style="color: var(--color-accent);"></a></p>
+        <p style="margin-top: 12px; font-size: 0.92rem;">For SMS support, reply <strong>HELP</strong> to any message from the Service, or email the address above.</p>
+    </section>
+
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 William Benson. All rights reserved.</p>
+        <p style="margin-top: 4px;"><a href="#privacy">Privacy Policy</a> &middot; <a href="#terms">Terms of Service</a> &middot; <a href="#sms-consent">SMS Consent</a></p>
+    </div>
+</footer>
+
+<script>
+    // Email obfuscation — assembled at runtime so bots can't scrape it from raw HTML
+    (function() {
+        var u = 'whb126';
+        var d = 'gmail.com';
+        var addr = u + '@' + d;
+        // Fill all text placeholders
+        document.querySelectorAll('.e-protect').forEach(function(el) {
+            el.textContent = addr;
+        });
+        // Fill the clickable link in the contact section
+        var link = document.querySelector('.e-protect-link');
+        if (link) {
+            link.href = 'mai' + 'lto:' + addr;
+            link.textContent = addr;
+        }
+    })();
+</script>
+</body>
+</html>
